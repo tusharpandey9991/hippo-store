@@ -1,0 +1,99 @@
+.signup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.signup-form {
+  background: #1f1f1f;
+  padding: 30px 40px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 20px #00ff88;
+  position: relative;
+  color: white;
+  animation: fadeInScale 0.4s ease;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.signup-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #00ff88;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="password"] {
+  width: 94%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background: #2e2e2e;
+  color: white;
+}
+
+.terms-label {
+  display: block;
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+.terms-label input {
+  margin-right: 8px;
+}
+
+.submit-btn {
+  width: 100%;
+  background-color: #00ff88;
+  color: black;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #00cc66;
+}
+
+.signup-notification {
+  margin-top: 15px;
+  background-color: #09c372;
+  color: black;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}

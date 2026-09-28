@@ -1,0 +1,99 @@
+.spin-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spin-wheel-wrapper {
+  position: relative;
+  text-align: center;
+}
+
+.spin-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #ff4f4f;
+  cursor: pointer;
+  z-index: 10000;
+  transition: transform 0.2s;
+}
+.spin-close:hover {
+  transform: scale(1.2);
+}
+
+.spin-indicator {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  color: yellow;
+  z-index: 10;
+}
+
+.spin-wheel {
+  border-radius: 50%;
+  border: 6px solid white;
+  box-shadow: 0 0 30px limegreen;
+  transition: transform 4s ease-out;
+}
+
+.spin-button {
+  margin-top: 30px;
+  padding: 14px 30px;
+  font-size: 20px;
+  border: none;
+  border-radius: 12px;
+  background: black;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.spin-button:hover {
+  transform: scale(1.1);
+}
+
+.spin-message-popup {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: #fff;
+  padding: 16px 28px;
+  border-radius: 10px;
+  font-size: 20px;
+  animation: fadePop 0.4s ease, pulseGlow 1.5s infinite;
+}
+
+@keyframes fadePop {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px lime;
+  }
+  50% {
+    box-shadow: 0 0 25px lime;
+  }
+  100% {
+    box-shadow: 0 0 10px lime;
+  }
+}

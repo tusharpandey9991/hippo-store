@@ -1,0 +1,286 @@
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 60px;
+  z-index: 99999;
+    -webkit-backdrop-filter: blur(5px) ;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: relative;
+  background: linear-gradient(135deg, rgba(22, 0, 40, 0.6), rgba(10, 0, 40, 0.9));
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+  backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 30px;
+  border-radius: 14px;
+  width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+  color: white;
+  cursor: move;
+  resize: both;
+  min-width: 300px;
+  min-height: 300px;
+  box-shadow:
+    0 0 8px rgba(0, 255, 255, 0.3),
+    0 0 16px rgba(255, 0, 255, 0.2),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+  animation: fadeSlideIn 0.6s ease;
+  transition: all 0.4s ease;
+}
+
+@keyframes fadeSlideIn {
+  from { transform: translateY(-40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, transparent 40%, #00ff88 40%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.modal-image-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px #00ff88aa;
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.close-btn:hover {
+  transform: scale(1.2) rotate(90deg);
+}
+
+/* Rate button */
+.rate-button-container {
+  position: absolute;
+  top: 8px;
+  right: 80px;
+  margin-top: 230px;
+  z-index: 10;
+}
+
+.rate-icon-btn {
+  font-size: 1.5rem;
+  background: transparent;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: glowStar 1.8s ease-in-out infinite alternate;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.rate-icon-btn:hover {
+  transform: scale(1.25);
+  box-shadow: none;
+}
+
+/* Comments & Ratings */
+.comment-section {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #a64dff66;
+  background: linear-gradient(135deg, rgba(144, 0, 255, 0.15), rgba(80, 0, 120, 0.25));
+  box-shadow:
+    0 0 10px rgba(144, 0, 255, 0.25),
+    0 0 20px rgba(255, 0, 255, 0.15);
+  animation: glowBorder 3s infinite alternate;
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  backdrop-filter: blur(8px);
+}
+
+@keyframes glowBorder {
+  from { box-shadow: 0 0 8px rgba(144,0,255,0.2); }
+  to { box-shadow: 0 0 20px rgba(255,0,255,0.4); }
+}
+
+.rating-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rating-select,
+.comment-input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #a64dff;
+  background: rgba(30, 0, 60, 0.8);
+  color: white;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+.rating-select:hover,
+.comment-input:focus {
+  border-color: #e980ff;
+  background-color: rgba(60, 0, 100, 0.95);
+}
+
+.comment-input::placeholder {
+  color: #ccc;
+}
+
+.post-btn {
+  background-color: #a64dff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #000;
+  font-size: 16px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.post-btn:hover {
+  background-color: #d180ff;
+  transform: scale(1.05);
+}
+
+/* Scrollable comment history */
+.comment-scroll {
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 6px;
+  border-radius: 8px;
+  background: rgba(20, 0, 40, 0.6);
+    -webkit-backdrop-filter: blur(4px) saturate(180%);
+  backdrop-filter: blur(4px);
+  border: 1px solid #a64dff44;
+  scrollbar-width: thin;
+  scrollbar-color: #a64dff #111;
+}
+
+.comment-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.comment-scroll::-webkit-scrollbar-thumb {
+  background-color: #a64dff;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+.comment-scroll::-webkit-scrollbar-track {
+  background: #1e1e1e;
+  border-radius: 10px;
+}
+
+.comment-list {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.comment-list li {
+  background: linear-gradient(120deg, #100020, #1a0028);
+  padding: 10px;
+  border-radius: 6px;
+  animation: fadeCommentIn 0.3s ease;
+  position: relative;
+}
+@keyframes fadeCommentIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.highlight-comment {
+  animation: fadeHighlight 2.5s ease-in-out;
+}
+@keyframes fadeHighlight {
+  0% { background-color: #aa66ff; opacity: 1; }
+  50% { background-color: #330055; opacity: 0.8; }
+  100% { background-color: transparent; opacity: 1; }
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 4px;
+  text-align: right;
+}
+
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(0.3deg); }
+  50% { transform: rotate(-0.3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .modal-content {
+    width: 90vw;
+    padding: 20px;
+  }
+  .comment-scroll {
+    max-height: 200px;
+  }
+  .comment-input,
+  .rating-select {
+    font-size: 13px;
+    padding: 8px;
+  }
+  .post-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+/* Glowing close button */
+.glow-close {
+  animation: pulseClose 0.8s ease-in-out 0s 5 alternate;
+}
+
+@keyframes pulseClose {
+  0% {
+    box-shadow: 0 0 0px rgba(255, 0, 0, 0.2);
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 12px 4px rgba(255, 0, 0, 0.7);
+    transform: scale(1.1);
+  }
+}

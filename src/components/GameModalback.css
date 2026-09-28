@@ -1,0 +1,390 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 99999;
+  padding-top: 60px;
+}
+
+.modal-content {
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+  color: white;
+  position: relative;
+  text-align: center;
+  z-index: 100000;
+  cursor: move;
+  resize: both;
+  min-width: 300px;
+  min-height: 300px;
+  max-width: 95vw;
+  max-height: 95vh;
+  box-sizing: border-box;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+  border: 1px solid rgba(0, 255, 136, 0.15);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+  backdrop-filter: blur(10px);
+}
+
+.modal-content::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, transparent 40%, #00ff88 40%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ✅ NEW: Rate Button Styling */
+.rate-btn {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: transparent;
+  border: 1px solid #00ff88;
+  color: #1100ff;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+    -webkit-backdrop-filter: blur(5px) saturate(180%);
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+
+.rate-btn:hover {
+  background-color: #00ff88;
+  color: #000;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.modal-price {
+  font-weight: bold;
+  margin-top: 10px;
+  color: #00ff88;
+}
+
+.comment-section {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment-section h3 {
+  margin-bottom: 10px;
+}
+
+.comment-section form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.comment-section input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.comment-section button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.comment-section li {
+  margin-bottom: 6px;
+  background: #000000;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.rating-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.rating-select,
+.comment-input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 2px solid #00ff88;
+  background-color: #1f1f1f;
+  color: white;
+  font-size: 14px;
+}
+
+.post-btn {
+  background-color: #00ff88;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #000;
+  transition: background 0.3s ease;
+}
+
+.post-btn:hover {
+  background-color: #00cc66;
+}
+
+.comment-list {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment-scroll {
+  max-height: 240px;
+  overflow-y: auto;
+  margin-top: 10px;
+  padding-right: 6px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background-color: #111;
+  scrollbar-width: thin;
+  scrollbar-color: #00ff88 #1e1e1e;
+}
+
+.comment-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.comment-scroll::-webkit-scrollbar-thumb {
+  background-color: #00ff88;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.comment-scroll::-webkit-scrollbar-track {
+  background: #1e1e1e;
+  border-radius: 10px;
+}
+
+.highlight-comment {
+  animation: fadeHighlight 2.5s ease-in-out;
+}
+
+@keyframes fadeHighlight {
+  0% {
+    background-color: #00ff88;
+    opacity: 1;
+  }
+  50% {
+    background-color: #003322;
+    opacity: 0.8;
+  }
+  100% {
+    background-color: transparent;
+    opacity: 1;
+  }
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+.rating-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.rating-select {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  border: 2px solid #00ff88;
+  background: #1f1f1f;
+  color: #00ff88;
+  box-shadow: 0 0 6px rgba(0, 255, 136, 0.4);
+  transition: border 0.3s ease;
+}
+
+.rating-select:hover {
+  border-color: #00ffaa;
+  background-color: #2a2a2a;
+}
+
+.comment-input {
+  padding: 10px 14px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 2px solid #00ff88;
+  background-color: #1e1e1e;
+  color: #fff;
+  box-shadow: 0 0 6px rgba(0, 255, 136, 0.3);
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.comment-input::placeholder {
+  color: #888;
+}
+
+.comment-input:focus {
+  border-color: #00ffaa;
+  background-color: #2a2a2a;
+}
+
+.submit-comment-btn {
+  padding: 10px;
+  background-color: #00ff88;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submit-comment-btn:hover {
+  background-color: #00ffaa;
+}
+
+/* Resizable modal box outline */
+.resizable-box {
+  resize: both;
+  overflow: auto;
+  min-height: 200px;
+  min-width: 300px;
+  max-height: 500px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px dashed #00ff88;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+}
+
+@media (max-height: 500px) {
+  .modal-content {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+}
+
+@media (min-height: 800px) {
+  .comment-scroll {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    width: 90vw;
+    padding: 20px;
+  }
+
+  .comment-scroll {
+    max-height: 200px;
+  }
+
+  .comment-input,
+  .rating-select {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .post-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95vw;
+    padding: 20px;
+    min-width: 250px;
+    min-height: 250px;
+    max-width: 100vw;
+  }
+
+  .comment-scroll {
+    max-height: 200px;
+  }
+
+  .comment-input,
+  .rating-select {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .post-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .modal-content {
+    width: 80vw;
+    padding: 25px;
+  }
+
+  .comment-scroll {
+    max-height: 280px;
+  }
+}
+
+/* Adjust for low height devices */
+@media (max-height: 500px) {
+  .modal-content {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+}
+
+@media (min-height: 800px) {
+  .comment-scroll {
+    max-height: 300px;
+  }
+}

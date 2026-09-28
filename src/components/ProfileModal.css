@@ -1,0 +1,103 @@
+.profile-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.profile-modal {
+  background: #1e1e1e;
+  color: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 400px;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 94.5%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 2px solid #00ff88;
+  background-color: #121212;
+  color: white;
+  resize: none;
+  font-size: 14px;
+}
+
+.save-btn {
+  background-color: #00ff88;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #000;
+  transition: background 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.save-btn:hover {
+  background-color: #00cc66;
+}
+
+.save-confirmation {
+  margin-top: 10px;
+  color: #00ff88;
+  font-weight: bold;
+  text-align: center;
+}
+.avatar-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.avatar-preview {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #00ff88;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.avatar-preview:hover {
+  transform: scale(1.05);
+}
+
+.avatar-container input[type="file"] {
+  display: block;
+  margin: 0 auto;
+  color: white;
+}

@@ -1,0 +1,113 @@
+.game-card-wrapper {
+  perspective: 1000px;
+  transition: transform 0.4s ease-in-out;
+}
+
+.game-card-inner {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  border-radius: 15px;
+}
+
+.game-card {
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.game-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 16px 50px rgba(0, 255, 255, 0.4);
+}
+
+.game-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.game-card h3 {
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.game-card p {
+  font-size: 0.95rem;
+  color: #ddd;
+  margin-bottom: 10px;
+}
+
+.card-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.card-buttons button {
+  flex: 1 1 auto;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.card-buttons button:hover {
+  background: rgba(0, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+}
+
+.price {
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #0ff;
+}
+
+.discount-tag {
+  background: #ff4081;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-left: 6px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.discounted-price {
+  font-weight: bold;
+  color: #0ff;
+}
+
+.average-rating {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: gold;
+}
+
+.back video {
+  border-radius: 10px;
+  margin-top: 10px;
+}

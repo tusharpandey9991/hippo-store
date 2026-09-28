@@ -1,0 +1,330 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 99999;
+  padding-top: 60px;
+  animation: overlayFadeIn 0.5s ease-in-out;
+}
+
+@keyframes overlayFadeIn {
+  from {
+    background: rgba(0, 0, 0, 0);
+  }
+  to {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+  padding: 20px 40px;
+  border-radius: 16px;
+  width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  color: white;
+  position: relative;
+  text-align: center;
+  z-index: 100000;
+  cursor: move;
+  resize: both;
+  min-width: 360px;
+  min-height: 320px;
+  max-width: 95vw;
+  max-height: 95vh;
+  box-sizing: border-box;
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.4);
+  border: 1px solid rgba(0, 255, 136, 0.25);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+  backdrop-filter: blur(12px);
+  animation: modalFadeIn 0.6s ease;
+  transition: box-shadow 0.4s;
+}
+
+@keyframes modalFadeIn {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-content::after {
+  content: "";
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, transparent 40%, #00ff88 40%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.close-btn:hover {
+  color: #00ff88;
+  transform: scale(1.2);
+}
+
+.rate-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: transparent;
+  border: 1px solid #00ff88;
+  color: #00ff88;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(6px) saturate(180%);
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+.rate-btn:hover {
+  background-color: #00ff88;
+  color: #000;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.modal-price {
+  font-weight: bold;
+  margin-top: 10px;
+  color: #00ff88;
+  font-size: 18px;
+  text-shadow: 0 0 6px rgba(0, 255, 136, 0.3);
+}
+
+/* ==== Comment Section ==== */
+.comment-section {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.comment-section h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  background: linear-gradient(to right, #00ff88, #00ffaa);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.comment-section form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.comment-section input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #00ff88;
+  background-color: #1f1f1f;
+  color: white;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+.comment-section input:focus {
+  border-color: #00ffaa;
+  box-shadow: 0 0 6px rgba(0, 255, 136, 0.4);
+}
+
+.comment-section button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(to right, #00ff88, #00cc66);
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.comment-section button:hover {
+  background: linear-gradient(to right, #00ffaa, #00cc99);
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.3);
+}
+
+/* ==== Ratings ==== */
+.rating-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.rating-select,
+.comment-input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #00ff88;
+  background-color: rgba(31, 31, 31, 0.8);
+  color: white;
+  font-size: 15px;
+  transition: 0.3s ease;
+    -webkit-backdrop-filter: blur(6px) saturate(180%);
+  backdrop-filter: blur(6px);
+}
+.rating-select:hover,
+.comment-input:hover {
+  border-color: #00ffaa;
+  background-color: rgba(45, 45, 45, 0.9);
+}
+.comment-input::placeholder {
+  color: #aaa;
+}
+
+.post-btn,
+.submit-comment-btn {
+  background: linear-gradient(to right, #00ff88, #00ffaa);
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #000;
+  transition: all 0.3s ease;
+}
+.post-btn:hover,
+.submit-comment-btn:hover {
+  background: linear-gradient(to right, #00ffaa, #00cc99);
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+}
+
+.comment-list {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ==== Scrollable Comment History ==== */
+.comment-scroll {
+  max-height: 250px;
+  overflow-y: auto;
+  margin-top: 10px;
+  padding-right: 6px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background-color: #111;  
+  -webkit-backdrop-filter: blur(6px) saturate(180%);
+  backdrop-filter: blur(6px);
+  scrollbar-width: thin;
+  scrollbar-color: #00ff88 #1e1e1e;
+}
+.comment-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.comment-scroll::-webkit-scrollbar-thumb {
+  background-color: #00ff88;
+  border-radius: 10px;
+}
+.comment-scroll::-webkit-scrollbar-track {
+  background: #1e1e1e;
+  border-radius: 10px;
+}
+
+/* ==== Individual Comments ==== */
+.comment-section li {
+  margin-bottom: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #00ff88;
+  transition: 0.3s ease;
+}
+.comment-section li:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 6px rgba(0, 255, 136, 0.2);
+}
+
+.highlight-comment {
+  animation: fadeHighlight 2.5s ease-in-out;
+}
+@keyframes fadeHighlight {
+  0% {
+    background-color: #00ff88;
+    opacity: 1;
+  }
+  50% {
+    background-color: #003322;
+    opacity: 0.8;
+  }
+  100% {
+    background-color: transparent;
+    opacity: 1;
+  }
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 4px;
+  text-align: right;
+}
+
+/* ==== Resizable Box ==== */
+.resizable-box {
+  resize: both;
+  overflow: auto;
+  min-height: 200px;
+  min-width: 300px;
+  max-height: 500px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px dashed #00ff88;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+   -webkit-backdrop-filter: blur(6px) saturate(180%);
+  backdrop-filter: blur(6px);
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 480px) {
+  .modal-content {
+    width: 90vw;
+    padding: 20px;
+  }
+  .comment-input,
+  .rating-select {
+    font-size: 13px;
+    padding: 10px;
+  }
+  .post-btn {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+}

@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+.heading-box {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 20px 30px;
+  margin: 100px auto 30px auto;
+  width: fit-content;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+  animation: boxFadeIn 1s ease-out forwards, glowPulse 4s ease-in-out infinite;
+  overflow: visible;
+}
+
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 0;
+  font-size: 2.8rem;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(0, 255, 195, 0.3), 0 0 25px rgba(255, 0, 200, 0.3);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+
+.sparkle-text {
+  position: relative; /* ✅ Keeps the shimmer within bounds */
+  background: linear-gradient(90deg, #00ffc3, #ff00c8, #00ffc3);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: textGradient 6s ease-in-out infinite, sparkle 2s infinite;
+}
+
+.heading:hover .sparkle-text {
+  transform: scale(1.05);
+  text-shadow: 0 0 25px rgba(0, 255, 195, 0.6), 0 0 45px rgba(255, 0, 200, 0.6);
+}
+
+.heading-icon {
+  width: 80px;
+  height: 55px;
+  animation: iconFadeIn 1.2s ease-out;
+  filter: drop-shadow(0 0 5px #00ff88) drop-shadow(0 0 8px #ff00c8);
+  transition: transform 0.3s ease;
+}
+.heading-icon:hover {
+  transform: scale(1.15) rotate(5deg);
+}
+
+
+/* KEYFRAMES */
+/* --- KEYFRAMES --- */
+@keyframes iconFadeIn {
+  0% { opacity: 0; transform: translateX(20px) scale(0.8); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes textGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes boxFadeIn {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 10px rgba(0, 255, 136, 0.1), 0 0 20px rgba(255, 0, 200, 0.1); }
+  50% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.3), 0 0 40px rgba(255, 0, 200, 0.3); }
+  100% { box-shadow: 0 0 10px rgba(0, 255, 136, 0.1), 0 0 20px rgba(255, 0, 200, 0.1); }
+}
+
+@keyframes sparkle {
+  0%   { text-shadow: 0 0 10px rgba(255,255,255,0.2); }
+  50%  { text-shadow: 0 0 20px rgba(255,255,255,0.5); }
+  100% { text-shadow: 0 0 10px rgba(255,255,255,0.2); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -500px 0; }
+  100% { background-position: 500px 0; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.9) translateY(-20px); opacity: 0; }
+  60% { transform: scale(1.05) translateY(10px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); }
+}
+
+@keyframes glitch {
+  0%   { text-shadow: 2px 0 red; }
+  20%  { text-shadow: -2px 0 blue; }
+  40%  { text-shadow: 2px 2px lime; }
+  60%  { text-shadow: -1px -1px red; }
+  80%  { text-shadow: 2px -2px cyan; }
+  100% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+}
+
+/* New Styles for enhanced animation */
+.enhanced-heading-box {
+  animation: bounceIn 1.2s ease-out, glowPulse 4s ease-in-out infinite;
+}
+
+
+.enhanced-heading .glitch-text {
+  position: relative;
+  display: inline-block;
+  animation: glitch 2s infinite ease-in-out;
+}
+.sparkle-text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%; /* ✅ Reduce from -150% to keep within bounds */
+  width: 200%; /* ✅ Covers full text span only */
+  height: 100%;
+  transform: skewX(-25deg);
+  animation: shimmer 4s infinite;
+  pointer-events: none;
+}
+
+

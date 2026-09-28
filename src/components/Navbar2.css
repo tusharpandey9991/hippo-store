@@ -1,0 +1,348 @@
+/* Main navbar container */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background-image: url('https://wallpapercave.com/wp/wp9110977.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  background-color: rgba(10, 10, 25, 0.8);
+  /* adds darkness over the image */
+  border-bottom: 2px solid #00ffe0;
+  box-shadow: 0 0 10px #00ffe0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  z-index: 500;
+  transition: transform 0.4s ease-in-out;
+  box-sizing: border-box;
+}
+.navbar-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.4s ease-in-out;
+}
+
+@keyframes cyberpunkPulse {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  /* darkens image slightly */
+  z-index: -1;
+}
+
+.navbar * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Logo styling */
+.logo img {
+  height: 30px;
+  /* slightly smaller */
+  width: auto;
+  transition: height 0.3s;
+}
+
+/* Navigation links */
+.nav-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  font-size: 0.85rem;
+  padding-right: 10px;
+  /* ✅ Add this */
+  max-width: calc(100% - 60px);
+  /* ✅ Prevent overflow on smaller screens */
+  flex-wrap: wrap;
+  /* ✅ In case of very small screens */
+}
+
+
+/* Nav list items */
+.nav-links li {
+  list-style: none;
+}
+
+/* Button hover animation */
+.nav-links li:hover {
+  transform: translateY(-2px);
+}
+
+/* Button base */
+.nav-links li a {
+  padding: 10px 18px;
+  background-color: transparent;
+  color: #00ffe0;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px #00ffe0, 0 0 10px #00ffe0;
+}
+
+/* Button hover effect */
+.nav-links li a:hover {
+  background-color: #00ffe0;
+  color: #111;
+  border-color: #00ffe0;
+  text-shadow: none;
+}
+
+/* Notification (unchanged) */
+.login-notification,
+.signup-notification {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0f0f0f;
+  color: #00ff88;
+  border: 2px solid #00ff88;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.4);
+  font-size: 16px;
+  z-index: 9999;
+  animation: fadeInOut 4s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    gap: 8px;
+    font-size: 0.75rem;
+    padding-right: 6px;
+  }
+
+  .nav-links li a {
+    padding: 8px 12px;
+  }
+}
+
+.music-toggle {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.music-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.track-name.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 140px;
+  /* Adjust width based on UI */
+  display: inline-block;
+}
+
+.marquee-inner {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scrollTrackName 8s linear infinite;
+  color: #00ffff;
+}
+
+@keyframes scrollTrackName {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.music-track-info.enhanced-track-info {
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #1e1e2f, #2e2e5e);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+  z-index: 9999;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeInSlide 0.4s ease-out forwards;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.music-icon {
+  font-size: 18px;
+  animation: pulse 1s infinite;
+}
+
+.track-text {
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.track-name {
+  font-weight: bold;
+  color: #00ffff;
+}
+
+/* Entrance animation */
+@keyframes fadeInSlide {
+  from {
+    transform: translateX(-50%) translateY(-20px) scale(0.95);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(-50%) translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.music-track-info.fade-out-animated {
+  animation: fadeOutSlide 1s ease forwards;
+}
+
+/* Exit animation */
+/* When fading in */
+.music-track-info.fade-in-animated {
+  animation: fadeInSlide 0.5s ease-out forwards;
+}
+
+@keyframes fadeOutSlide {
+  from {
+    transform: translateX(-50%) translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(-50%) translateY(-20px) scale(0.95);
+    opacity: 0;
+  }
+}
+
+/* Pulse effect */
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+
+@keyframes fadeInMusicInfo {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .navbar {
+    height: 60px; /* Slightly taller for touch */
+    padding: 0 8px;
+  }
+
+  .nav-links {
+    gap: 8px;
+    font-size: 0.75rem;
+    padding-right: 6px;
+    flex-wrap: nowrap; /* Prevent wrapping if possible */
+    overflow-x: auto; /* Scroll horizontally if too many links */
+  }
+
+  .nav-links li a {
+    padding: 8px 12px;
+  }
+
+  .logo img {
+    height: 25px; /* Smaller logo */
+  }
+
+  .music-toggle {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .navbar {
+    padding: 0 10px;
+  }
+
+  .nav-links {
+    gap: 12px;
+    font-size: 0.8rem;
+  }
+
+  .logo img {
+    height: 28px;
+  }
+}
